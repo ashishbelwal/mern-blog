@@ -1,8 +1,10 @@
 import Link from "next/link";
 type Post = {
-  id: number;
+  _id: string;
   title: string;
-  body: string;
+  content: string;
+  author: string;
+  date: string;
 };
 type PostsListProps = {
   posts: Post[];
@@ -13,8 +15,8 @@ export default function PostsList({ posts }: PostsListProps) {
     <>
       <ul>
         {posts.map((post) => (
-          <li key={post.id} className="max-w-[400px] mb-3 mx-auto">
-            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+          <li key={post._id} className="max-w-[400px] mb-3 mx-auto">
+            <Link href={`/posts/${post._id}`}>{post.title}</Link>
           </li>
         ))}
       </ul>
